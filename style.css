@@ -1,0 +1,100 @@
+:root {
+  --background: radial-gradient(circle, hsla(220, 11%, 74%, 1) 0%, hsla(358, 64%, 41%, 1) 100%);
+  --text-color: hsl(228, 5%, 19%);
+  --accent-color: hsl(358, 64%, 41%);
+  --title-size: 6rem;
+  --title-height: calc(var(--title-size) * 1.2);
+  --time-delay: 400ms;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-div {
+  height: calc(var(--title-size) * 1.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: larger;
+  line-height: 1.5;
+  width: 5%;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.text-div {
+  position: relative;
+}
+
+.text {
+  font-size: var(--title-size);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+  line-height: var(--title-height);
+  /* Immediately transparent, and only become visible after some time delay */
+  transition: color 0ms ease-out calc(var(--time-delay) * .9);
+}
+
+.text:hover {
+  color: transparent;
+  /* ease-in has no transition delay */
+  transition-delay: 0ms;
+}
+
+.text::before, 
+.text::after {
+  position: absolute;
+  content: attr(data-text);
+  height: calc(var(--title-height) * .5);
+  overflow: hidden;  
+  transition: color 0ms ease-out var(--time-delay),
+              text-shadow var(--time-delay) ease-out calc((var(--time-delay)) * .9),
+              transform var(--time-delay) ease-in-out;
+}
+
+.text::after {
+  left: 0;
+  top: 50%;
+  line-height: 0%;
+}
+
+.text:hover::before,
+.text:hover::after {
+  color: var(--text-color);
+  text-shadow: 0px 0px 2px var(--accent-color);
+  transform: skewX(15deg);
+  transition-delay: 0ms;
+}
+
+.text-div::before {
+  position: absolute;
+  content: "";
+  background-color: var(--text-color);
+  border: calc(var(--title-size) * .01) solid var(--accent-color);
+  width: 110%;
+  height: 3%;
+  left: -5%;
+  top: 50%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity calc(var(--time-delay) * 1.1) ease-in-out;
+}
+
+.text-div:hover::before {
+  opacity: 1;
+} 
