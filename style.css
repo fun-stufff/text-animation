@@ -1,5 +1,5 @@
 :root {
-  --background: radial-gradient(circle, hsla(220, 11%, 74%, 1) 0%, hsla(358, 64%, 41%, 1) 100%);
+  --background: radial-gradient(circle, hsla(220, 11%, 74%, 1) 0%, hsla(358, 64%, 41%, 1) 73%);
   --text-color: hsl(228, 5%, 19%);
   --accent-color: hsl(358, 64%, 41%);
   --title-size: 6rem;
