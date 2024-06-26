@@ -29,6 +29,7 @@
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--text-color);
   min-height: 100vh;
@@ -86,6 +87,7 @@ img {
   transition: color 0ms ease-out var(--time-delay),
               text-shadow var(--time-delay) ease-out calc((var(--time-delay)) * .9),
               transform var(--time-delay) ease-in-out;
+  pointer-events: none;
 }
 
 .text::after {
